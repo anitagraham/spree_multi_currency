@@ -12,7 +12,7 @@ RSpec.feature 'Variant Prices', :js do
 
     scenario 'allows to save a price for each currency' do
       visit spree.admin_product_path(product)
-      click_link 'Prices'
+      find_link("Prices", match: :first).click
       expect(page).to have_content 'USD'
       expect(page).to have_content 'EUR'
 

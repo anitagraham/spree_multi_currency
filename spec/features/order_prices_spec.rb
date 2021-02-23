@@ -14,7 +14,7 @@ RSpec.feature 'Order', :js do
   context 'when existing in the cart' do
     scenario 'changes its currency, if user switches the currency.' do
       visit spree.product_path(product)
-      click_button 'Add To Cart'
+      find_link('Add to Cart', match: :first).click
       check_product_price('$19.99')
       select 'EUR', from: 'currency'
       check_product_price('€16.00')
