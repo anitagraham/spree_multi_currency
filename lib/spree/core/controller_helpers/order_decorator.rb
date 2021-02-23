@@ -20,7 +20,7 @@ Spree::Core::ControllerHelpers::Order.class_eval do
     elsif !session.key?(:currency) && current_user_country_currency && supported_currencies.map(&:iso_code).include?(current_user_country_currency)
       current_user_country_currency
     else
-      Spree::Config[:currency]
+      current_store.default_currency
     end
   end
 end

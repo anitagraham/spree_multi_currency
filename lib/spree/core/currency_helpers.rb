@@ -5,7 +5,8 @@ module Spree
     end
 
     def supported_currencies
-      Spree::Config[:supported_currencies].split(',').map { |code| ::Money::Currency.find(code.strip) }
+      @supported_currencies ||= Spree::Store.pluck(:default_currency).uniq.compact.map { |code| ::Money::Currency.find(code.strip) }
+      @supported_currencies ||= [Spree::Config[:currency]]
     end
   end
 end

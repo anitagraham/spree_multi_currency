@@ -2,11 +2,9 @@ RSpec.feature 'Order', :js do
   given!(:product) { create(:product) }
 
   background do
-    reset_spree_preferences do |config|
-      config.supported_currencies   = 'USD,EUR,GBP'
-      config.allow_currency_change  = true
-      config.show_currency_selector = true
-    end
+    create(:store, default_currency: 'USD')
+    create(:store, default_currency: 'EUR')
+    create(:store, default_currency: 'GBP')
     create(:price, variant: product.master, currency: 'EUR', price: 16.00)
     create(:price, variant: product.master, currency: 'GBP', price: 23.00)
   end

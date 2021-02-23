@@ -5,9 +5,8 @@ RSpec.feature 'Variant Prices', :js do
 
   context 'with USD and EUR as currencies' do
     background do
-      reset_spree_preferences do |config|
-        config.supported_currencies = 'USD,EUR'
-      end
+      create(:store, default_currency: 'USD')
+      create(:store, default_currency: 'EUR')
     end
 
     scenario 'allows to save a price for each currency' do

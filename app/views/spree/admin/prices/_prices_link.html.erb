@@ -1,0 +1,4 @@
+<li>
+  <% title = Spree.t(:prices) %>
+  <%= link_to_with_icon 'money', title, admin_product_prices_url(@product), class: "nav-link #{'active' if current == 'Prices'}"  %>
+</li>

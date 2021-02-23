@@ -7,6 +7,10 @@ appraise 'spree-4-0' do
   gem 'spree', '~> 4.0.0'
 end
 
+appraise 'spree-4-1' do
+  gem 'spree', '~> 4.1.0'
+end
+
 appraise 'spree-master' do
   gem 'spree', github: 'spree/spree', branch: 'master'
 end
